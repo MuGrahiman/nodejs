@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mu-G | <%= title %></title>
+    <%- include('./style.ejs')%>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- <link rel="stylesheet" href="/proj/static/style.css"> -->
+
+</head>
+
+
+    <body class="container">
+        <div class="page-header">
+            <h1>MU-G Dashboard-page</h1>
+        </div>
+      
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <div class="site-title">
+                            <a href="/"><h1>Mu-G</h1></a>
+                             <p>Dashboard</p>
+                            </div>
+                    
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="/admin-log">Admin Page</a> </li>
+                        <li><a href="/newblog"> New Blog</a> </li>
+                        <li> <a href="/">Login Page</a> </li>
+                        <li><a href="/logout">Log Out</a></li>
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+        </nav>
+
+        <div class="container row">
+           <h1>Hi, Welcome to your Dashboard</h1>
+        </div>
+    </body>
+</html>

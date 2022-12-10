@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mu-G | <%= title %>
+    </title>
+    <link rel="stylesheet" href="/style.css">
+    <!-- <%- include('./style.ejs')%> -->
+</head>
+
+<body>
+    <nav>
+        <div class="site-title">
+            <a href="/">
+                <h1>Mu-G</h1>
+            </a>
+            <p>LoginPage</p>
+        </div>
+        <ul>
+            <li> <a href="/">Login Page </li>
+            <li><a href="/admin-log">Admin Page</a> </li>
+            <li><a href="/newblog"> New Blog</a> </li>
+            <li><a href="/admin-logout" style="color:red">Log Out</a> </li>
+        </ul>
+    </nav>
+    <div class="blogs content " id="">
+        <h2>All Blogs</h2>
+        <% blogs.forEach(blog=>{ %>
+            <a class="single" >
+                <h1 class="Name">
+                    <%= blog.name %>
+                </h1>
+                <p class="Email">
+                    <%= blog.email %>
+                </p>
+                <p class="Password">
+                    <%= blog.password %>
+                </p>
+                    <a class="delete" data-del="<%=blog._id%>" >delete</a>
+            
+                    <a class="Edit" data-doc="<%=blog._id%>" href="/blogs/<%=blog._id %>">Edit</a>
+            </a>
+            <% })%>
+                <div>
+                </div>
+                <footer>
+                    <p>copyright &copy; Blog Mu-G</p>
+                </footer>
+    </div>
+    <script>
+
+        let trashcan = document.querySelector('a.delete');
+        trashcan.addEventListener('click', (e) => {
+            let endpoint = `/blogs/${trashcan.dataset.del}`;
+            fetch(endpoint, {
+                method: 'DELETE'
+            })
+
+                .then((response) => response.json())
+                .then((data) => window.location.href = data.redirect)
+                .catch((err) => console.log(err))
+        });
+
+
+
+    </script>
+</body>
+
+</html>
